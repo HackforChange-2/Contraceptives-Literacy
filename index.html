@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hack4Change Visualizations</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/nicgirault/circosJS/master/dist/colorBrewer.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body style="overflow-x: hide !important; background-color: #ccc ">
+<h1 style="text-align: center"> Representation of Married Women using Condoms as a Contraceptive via HeatMap</h1>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<script src="https://cdn.rawgit.com/nicgirault/circosJS/master/dist/circosJS.js" type="text/javascript"></script>
+<div class="row">
+<div class="col-md-9" style="margin-top: -5em">
+<script src="data.js" type="text/javascript"></script>
+<svg id='chart' style='display: block; margin: 0em 1em 0em 1em;'></svg>
+<script type='text/javascript'>
+  var circos = new circosJS({
+      container: '#chart',
+      width: 820,
+      height: 820,
+  });
+
+  circos
+    .layout(
+        {
+            innerRadius: 280,
+            outerRadius: 320,
+            ticks: {display: false},
+            labels: {
+              position: 'center',
+              display: true,
+              size: 11,
+              color: '#000',
+              radialOffset: 15,
+            }
+        },
+        layout_data
+    )
+    .heatmap('totalcondoms', {
+        innerRadius: 200,
+        outerRadius: 250,
+        logScale: false,
+        colorPalette: 'RdPu',
+    }, heatmap)
+    .heatmap('urbanCondoms', {
+    	innerRadius: 140,
+    	outerRadius: 170,
+    	logScale: false,
+    	colorPalette: 'PuBu'
+    },heatmap)
+    .heatmap('ruralCondoms', {
+    	innerRadius: 90,
+    	outerRadius: 120,
+    	logScale: false,
+    	colorPalette: 'PuRd'
+    },heatmap)
+    .render();
+</script>
+</div>
+<div class="col-sm-3"><img src="Key.png" style="width: 120%;margin-top:15em;margin-left: -8em"></div>
+</div>
+<div class="row" style="text-align: center">
+	<h2><a href="index.html">HeatMap</a></h2>
+	<h2><a href="total1.html">Bar Graph</a></h2>
+</div>
+<div class="row"><h5 style="text-align: right; margin-right: 2em"><a href="https://data.gov.in/catalog/current-use-contraceptives-methods-currently-married-women">Source</a></h5></div>
+</body>
+</html>

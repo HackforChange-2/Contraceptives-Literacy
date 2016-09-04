@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['States', 'Total users'],
+          ['Kerala', 54.8],
+          ['Goa', 37],
+          ['Mizoram', 56.7],
+          ['Tripura', 40.6],
+          ['Chandigarh', 70.7],
+          ['Delhi', 55.2],
+          ['Himachal Pradesh', 69.5],
+          ['Sikkim', 59.8],
+          ['Maharashtra', 63.9],
+          ['Tamil Nadu', 59.2],
+          ['Manipur', 17],
+          ['Uttarakhand', 58.9],
+          ['Gujrat', 56.4],
+          ['Punjab', 63.2],
+          ['West Bengal', 53.4],
+          ['Karnataka', 62.3],
+          ['Haryana', 55.7],
+          ['Odisha', 39.6],
+          ['Assam', 31],
+          ['Chattisgarh', 48.7],
+          ['Meghalaya', 56.7],
+          ['Andhra Pradesh', 66.7],
+          ['Madhya Pradesh', 66.7],
+          ['Uttar Pradesh', 27.2],
+          ['Jammu and Kashmir', 42.7],
+          ['Rajasthan', 55.3],
+          ['Jharkhand', 31.8],
+          ['Arunachal Pradesh', 48.2],
+          ['Bihar', 29.4]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Married women using contraceptives in India(%)',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="row">
+    <div class="col-md-9">
+    <div id="barchart_material" style="width: 900px; height: 700px;"></div>
+    </div>
+    <div class="col-md-3">
+    <h4>Literacy Rate of India</h4>
+    <img src = "legend.png" style="margin-left: -13em;">
+        <h5><a href="https://data.gov.in/catalog/current-use-contraceptives-methods-currently-married-women">Contraceptives Data Source</a>
+        <h5><a href="http://howindialives.com/">Literacy Data Source</a></h6>
+    </div>
+    </div>
+  </body>
+</html>
